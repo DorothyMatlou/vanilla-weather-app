@@ -11,7 +11,7 @@ body {
 
 .card {
   width: 90%;
-  max-width: 650px;
+  max-width: 655px;
   background: white;
   color: #06283d;
   margin: 100px auto 0;
@@ -76,11 +76,6 @@ body {
   display: none;
 }
 
-.error img {
-  max-height: 300px;
-  max-width: 150px;
-}
-
 .units span a {
   color: #06283d;
   text-decoration: none;
@@ -107,7 +102,7 @@ body {
 #description,
 #details {
   color: #06283d;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   text-transform: capitalize;
 }

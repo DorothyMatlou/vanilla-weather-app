@@ -19,8 +19,8 @@ function search() {
   document.getElementById("location").innerHTML = `${searchInput.value}`;
 }
 
-let searchForm = document.querySelector("#search-button");
-searchForm.addEventListener("submit", search);
+let searchButton = document.querySelector("#search-button");
+searchButton.addEventListener("submit", search);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
