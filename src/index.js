@@ -1,4 +1,3 @@
-//Week4Homework challenge 1
 let now = new Date();
 let days = [
   "Sunday",
@@ -15,8 +14,6 @@ let am_pm = now.toLocaleTimeString();
 
 document.getElementById("date").innerHTML = `${day} ${am_pm}`;
 
-//Week4Homework challenge 2
-
 function search() {
   let searchInput = document.querySelector("#search-text-input");
   document.getElementById("location").innerHTML = `${searchInput.value}`;
@@ -24,8 +21,6 @@ function search() {
 
 let searchForm = document.querySelector("#search-button");
 searchForm.addEventListener("click", search);
-
-//Week4Homework Challenge 3
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -36,18 +31,6 @@ function convertToFahrenheit(event) {
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let celsiusTemp = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
-//week5 Challenge
 
 const apiKey = "9cb72bec958f8fb02391985ed7b219d2";
 const apiUrl =
@@ -76,6 +59,8 @@ async function checkWeather(city) {
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
 });
+
+checkWeather("Pretoria");
 
 let geoUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&";
 
