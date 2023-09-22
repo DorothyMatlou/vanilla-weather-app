@@ -20,7 +20,7 @@ function search() {
 }
 
 let searchForm = document.querySelector("#search-button");
-searchForm.addEventListener("click", search);
+searchForm.addEventListener("submit", search);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
