@@ -42,19 +42,39 @@ const weatherIcon = document.querySelector("#weather-icon");
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-  var data = await response.json();
-  console.log(data);
 
-  document.querySelector("#location").innerHTML = data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(data.main.temp);
-  document.querySelector("#humidity").innerHTML = data.main.humidity + "%";
-  document.querySelector("#wind-speed").innerHTML = data.wind.speed + "km/hr";
-  document.querySelector("#description").innerHTML =
-    data.weather[0].description;
-  weatherIcon.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-  );
+  if (response.status === 404) {
+    document.querySelector(".error").style.display = "block";
+    document.querySelector(".units").style.display = "none";
+    document.querySelector(".weather-temp").style.display = "none";
+    document.querySelector("#description").style.display = "none";
+    document.querySelector("#details").style.display = "none";
+    document.querySelector("#humidity").style.display = "none";
+    document.querySelector("#wind-speed").style.display = "none";
+  } else {
+    var data = await response.json();
+
+    document.querySelector("#location").innerHTML = data.name;
+    document.querySelector("#temperature").innerHTML = Math.round(
+      data.main.temp
+    );
+    document.querySelector("#humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector("#wind-speed").innerHTML = data.wind.speed + "km/hr";
+    document.querySelector("#description").innerHTML =
+      data.weather[0].description;
+    weatherIcon.setAttribute(
+      "src",
+      `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    );
+
+    document.querySelector(".error").style.display = "none";
+    document.querySelector(".units").style.display = "block";
+    document.querySelector(".weather-temp").style.display = "block";
+    document.querySelector("#description").style.display = "block";
+    document.querySelector("#details").style.display = "block";
+    document.querySelector("#humidity").style.display = "block";
+    document.querySelector("#wind-speed").style.display = "block";
+  }
 }
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);

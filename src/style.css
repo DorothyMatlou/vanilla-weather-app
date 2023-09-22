@@ -68,6 +68,19 @@ body {
   font-size: 28px;
 }
 
+.error {
+  text-align: center;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+.error img {
+  max-height: 300px;
+  max-width: 150px;
+}
+
 .units span a {
   color: #06283d;
   text-decoration: none;
