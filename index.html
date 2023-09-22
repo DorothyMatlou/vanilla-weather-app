@@ -22,6 +22,76 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
+
+    <div class="card">
+
+      
+      <div class="search-box">
+        <i class="fa-solid fa-location-dot"></i>
+        <input type="text" placeholder="Enter city" spellcheck="false" id="search-text-input"/>
+        <button class="fa-solid fa-magnifying-glass" id="search-button"></button>
+      </div>
+      <br />
+      <div class="container">
+         <div class="row">
+         <div class="col-6">
+            <h1 id="location">Pretoria</h1>
+            <button id="current-position">Current Position</button>
+            
+         </div>
+            <div class="col-6">
+            <h2 id="date">Monday </br>14:00</h2>
+         </div>
+     </div>
+        <div class="container" style= "border: 1px solid grey;">
+       <div class="row">
+     <div class="col">
+      
+      <div> <img src="media/weather.png" alt="weatherIcon" class="weather-icon float-left"  width="45px" id="weather-icon"></div>
+      <div class="float-left">
+        <span class="weather-temp" id="temperature">24</span>
+        <span class="units"> <a href="#" id="celsius-link">°C |</a> <a href="#" id="fahrenheit-link">°F</a></span>
+      </div>
+    
+    </br>
+  </br>
+      <p id="description">Mostly Sunny</p>
+     </div>
+        <div class="col">
+          <div>
+            <i class="fa-solid fa-water"></i>
+          <div>
+            <span id="humidity">80%</span>
+            <p id="details">Humidity</p>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+          <div>
+          <i class="fa-solid fa-wind"></i>
+          <div>
+            <span id="wind-speed">2.4 Km/h</span>
+            <p id="details">Wind Speed</p>
+          </div>
+        </div>
+
+        </div>
+     </div> 
+        </div>
+        <br />
+        <div class="d-flex justify-content-between flex-row" style="border: 1px solid #06283d;">
+         <div class="p-2" >Tue <br /> 🌥 <br /><p>6 | 17</p></div>
+         <div class="p-2" >Wed <br /> ☀ <br /><p>10 | 21</p></div>
+         <div class="p-2" >Thu <br /> ☀ <br /><p>16 | 31</p></div>
+         <div class="p-2" >Fri <br /> 🌥 <br /><p>11 | 25</p></div>
+         <div class="p-2" >Sat <br /> 🌩 <br /><p>4 | 10</p></div>
+     </div>
+    <span class="source-code">
+      <a href="https://github.com/DorothyMatlou/vanilla-weather-app"><small>Open-Source-Code</small></a>
+      <small> by Dorothy Maleka, Hosted on </small><a href="https://rainbow-belekoy-6a8cf7.netlify.app/"><small>Netlify</small></a>
+      </span>
+
+
     <script src="src/index.js">
       Js
     </script>
