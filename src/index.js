@@ -48,7 +48,6 @@ async function checkWeather(city) {
     document.querySelector(".units").style.display = "none";
     document.querySelector(".weather-temp").style.display = "none";
     document.querySelector("#description").style.display = "none";
-    document.querySelector("#details").style.display = "none";
     document.querySelector("#humidity").style.display = "none";
     document.querySelector("#wind-speed").style.display = "none";
   } else {
@@ -71,7 +70,6 @@ async function checkWeather(city) {
     document.querySelector(".units").style.display = "block";
     document.querySelector(".weather-temp").style.display = "block";
     document.querySelector("#description").style.display = "block";
-    document.querySelector("#details").style.display = "block";
     document.querySelector("#humidity").style.display = "block";
     document.querySelector("#wind-speed").style.display = "block";
   }
