@@ -91,7 +91,6 @@ async function showPosition(position) {
   );
 
   let geoData = await response.json();
-  console.log(geoData);
 
   document.querySelector("#location").innerHTML = geoData.name;
   document.querySelector("#temperature").innerHTML = Math.round(
