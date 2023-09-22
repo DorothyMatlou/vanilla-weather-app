@@ -68,18 +68,10 @@ async function checkWeather(city) {
   document.querySelector("#wind-speed").innerHTML = data.wind.speed + "km/hr";
   document.querySelector("#description").innerHTML =
     data.weather[0].description;
-
-  if (data.weather[0].main == "Clouds") {
-    weatherIcon.src = "media/BrokenClouds.png";
-  } else if (data.weather[0].main == "Clear") {
-    weatherIcon.src = "media/ClearSky.png";
-  } else if (data.weather[0].main == "Rain") {
-    weatherIcon.src = "media/ShowerRain.png";
-  } else if (data.weather[0].main == "Drizzle") {
-    weatherIcon.src = "media/Snow.png";
-  } else if (data.weather[0].main == "Mist") {
-    weatherIcon.src = "media/Mist.png";
-  }
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+  );
 }
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
@@ -107,17 +99,10 @@ async function showPosition(position) {
     geoData.wind.speed + "km/hr";
   document.querySelector("#description").innerHTML =
     geoData.weather[0].description;
-  if (geoData.weather[0].main == "Clouds") {
-    weatherIcon.src = "media/BrokenClouds.png";
-  } else if (geoData.weather[0].main == "Clear") {
-    weatherIcon.src = "media/ClearSky.png";
-  } else if (geoData.weather[0].main == "Rain") {
-    weatherIcon.src = "media/ShowerRain.png";
-  } else if (geoData.weather[0].main == "Drizzle") {
-    weatherIcon.src = "media/Snow.png";
-  } else if (geoData.weather[0].main == "Mist") {
-    weatherIcon.src = "media/Mist.png";
-  }
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${geoData.weather[0].icon}@2x.png`
+  );
 }
 
 function getCurrentPosition() {
