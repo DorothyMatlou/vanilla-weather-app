@@ -9,18 +9,10 @@ let days = [
   "Saturday",
 ];
 
-let day = days[now.getDay()];
-let am_pm = now.toLocaleTimeString();
+const day = days[now.getDay()];
+const am_pm = now.toLocaleTimeString();
 
 document.getElementById("date").innerHTML = `${day} ${am_pm}`;
-
-function search() {
-  let searchInput = document.querySelector("#search-text-input");
-  document.getElementById("location").innerHTML = `${searchInput.value}`;
-}
-
-let searchButton = document.querySelector("#search-button");
-searchButton.addEventListener("submit", search);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
@@ -36,7 +28,7 @@ const apiKey = "9cb72bec958f8fb02391985ed7b219d2";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
 
-const searchBox = document.querySelector("#search-text-input");
+const searchBox = document.querySelector("#search-input");
 const searchBtn = document.querySelector("#search-button");
 const weatherIcon = document.querySelector("#weather-icon");
 
@@ -73,12 +65,17 @@ async function checkWeather(city) {
     document.querySelector("#humidity").style.display = "block";
     document.querySelector("#wind-speed").style.display = "block";
   }
+
+  console.log(data);
 }
-searchBtn.addEventListener("click", () => {
+
+//checkWeather("Pretoria");
+
+const form = document.querySelector("#search-form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault(); // Prevent the default form submission behavior.
   checkWeather(searchBox.value);
 });
-
-checkWeather("Pretoria");
 
 let geoUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&";
 
@@ -105,6 +102,7 @@ async function showPosition(position) {
     "src",
     `https://openweathermap.org/img/wn/${geoData.weather[0].icon}@2x.png`
   );
+  console.log(geoData);
 }
 
 function getCurrentPosition() {
