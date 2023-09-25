@@ -69,11 +69,11 @@ async function checkWeather(city) {
   console.log(data);
 }
 
-//checkWeather("Pretoria");
+checkWeather("Pretoria");
 
 const form = document.querySelector("#search-form");
 form.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent the default form submission behavior.
+  event.preventDefault();
   checkWeather(searchBox.value);
 });
 
