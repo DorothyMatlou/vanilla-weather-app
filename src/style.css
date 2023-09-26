@@ -148,3 +148,22 @@ body {
 #source-code span a:hover {
   color: blueviolet;
 }
+
+.weather-forecast {
+  text-align: center;
+}
+
+.weather-forecast-day {
+  font-size: 16px;
+  color: #06283d;
+  opacity: 0.6;
+}
+
+.weather-forecast-temperatures {
+  font-size: 13px;
+  color: #06283d;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.6;
+}
