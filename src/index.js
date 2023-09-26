@@ -14,6 +14,38 @@ const am_pm = now.toLocaleTimeString();
 
 document.getElementById("date").innerHTML = `${day} ${am_pm}`;
 
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class = "row">`;
+  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="weather-forecast-day">${day}</div>
+              <div class="weather-forecast-image"><img src="media/weather.png" width="36px" ></div>
+              <div class="weather-forecast-temperatures">
+                <span class="weather-forecast-temperature-max">18°</span>
+                <span class="weather-forecast-temperature-min">11°</span>
+              </div>
+            </div>
+          
+  `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+async function getForecast(coordinates) {
+  const apiKey = "597c40c39084687093b091cd48b366f8";
+  const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  const response = await fetch(apiUrl + coordinates);
+  var data = await response.json();
+  console.log(data.daily);
+}
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -58,6 +90,8 @@ async function checkWeather(city) {
       `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     );
 
+    getForecast(data.coord);
+
     document.querySelector(".error").style.display = "none";
     document.querySelector(".units").style.display = "block";
     document.querySelector(".weather-temp").style.display = "block";
@@ -65,8 +99,6 @@ async function checkWeather(city) {
     document.querySelector("#humidity").style.display = "block";
     document.querySelector("#wind-speed").style.display = "block";
   }
-
-  console.log(data);
 }
 
 checkWeather("Pretoria");
