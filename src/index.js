@@ -118,7 +118,6 @@ async function checkWeather(city) {
 }
 
 checkWeather("Pretoria");
-showForecast();
 
 const form = document.querySelector("#search-form");
 form.addEventListener("submit", (event) => {
@@ -131,6 +130,7 @@ let geoUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&";
 async function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
+  let apiKey = "a22ed997e4f02ac96b3bb1825943d285";
 
   const response = await fetch(
     geoUrl + `lat=${latitude}&lon=${longitude}&appid=${apiKey}`
