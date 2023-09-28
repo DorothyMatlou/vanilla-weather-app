@@ -93,15 +93,6 @@ body {
   display: none;
 }
 
-.units span a {
-  color: #06283d;
-  text-decoration: none;
-}
-
-.units span a:hover {
-  color: blue;
-}
-
 #temperature {
   color: #06283d;
   font-size: 28px;

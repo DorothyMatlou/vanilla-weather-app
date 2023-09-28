@@ -62,16 +62,6 @@ async function getForecast(coordinates) {
   showForecast(forecastData);
 }
 
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((temperature * 9) / 5 + 32);
-}
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
 const apiKey = "9cb72bec958f8fb02391985ed7b219d2";
 const apiUrl =
   "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
@@ -94,9 +84,8 @@ async function checkWeather(city) {
     var data = await response.json();
 
     document.querySelector("#location").innerHTML = data.name;
-    document.querySelector("#temperature").innerHTML = Math.round(
-      data.main.temp
-    );
+    document.querySelector("#temperature").innerHTML =
+      Math.round(data.main.temp) + "°C";
     document.querySelector("#humidity").innerHTML = data.main.humidity + "%";
     document.querySelector("#wind-speed").innerHTML = data.wind.speed + "km/hr";
     document.querySelector("#description").innerHTML =
@@ -151,7 +140,6 @@ async function showPosition(position) {
     "src",
     `https://openweathermap.org/img/wn/${geoData.weather[0].icon}@2x.png`
   );
-  console.log(geoData);
 }
 
 function getCurrentPosition() {
